@@ -1,13 +1,17 @@
-// alipaynfc_rewrite.js
+// redirect-alipay-scheme.js
+
 let url = $request.url;
-let decoded = decodeURIComponent(url);
 
-// 提取 scheme 参数中的 alipay 开头的部分
-let match = decoded.match(/scheme=(alipay:\/\/[^\s]+)/);
+// 提取 scheme 参数部分
+let schemeMatch = url.match(/[?&]scheme=([^&]+)/);
 
-if (match && match[1]) {
-  let redirectURL = match[1];
-  $done({ status: 307, headers: { Location: redirectURL } });
+if (schemeMatch && schemeMatch[1]) {
+  // 解码 URL 中的 scheme 参数值
+  let decodedScheme = decodeURIComponent(schemeMatch[1]);
+
+  // 返回 302 重定向到该 scheme
+  $done({ status: 307, headers: { Location: decodedScheme } });
 } else {
+  // 不匹配则正常继续
   $done({});
 }
