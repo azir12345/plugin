@@ -6,6 +6,7 @@
 #!category=
 [Script]
 http-request ^https:\/\/qr\.alipay\.com\/.* requires-body=0, script-path=https://raw.githubusercontent.com/azir12345/plugin/refs/heads/main/alipay_rewrite.js, tag=二维码跳转支付宝
-
+http-request ^https:\/\/render\.alipay\.com\/p\/s\/ulink\/sn\/\.* requires-body=0, script-path=https://raw.githubusercontent.com/azir12345/plugin/refs/heads/main/alipaynfc_rewrite.js, tag=碰一碰url跳转支付宝
 [MITM]
 hostname = qr.alipay.com
+hostname = render.alipay.com
