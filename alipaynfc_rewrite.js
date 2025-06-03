@@ -7,7 +7,7 @@ let match = decoded.match(/scheme=(alipay:\/\/[^\s]+)/);
 
 if (match && match[1]) {
   let redirectURL = match[1];
-  $done({ status: 302, headers: { Location: redirectURL } });
+  $done({ status: 307, headers: { Location: redirectURL } });
 } else {
   $done({});
 }
