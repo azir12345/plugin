@@ -1,0 +1,11 @@
+#!name=rewriteqrcode
+#!desc=
+#!author=azir12345
+#!homepage=
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png
+#!category=
+[Script]
+http-request ^https:\/\/qr\.alipay\.com\/.* requires-body=0, script-path=https://raw.githubusercontent.com/azir12345/plugin/refs/heads/main/alipay_rewrite.js, tag=二维码跳转支付宝
+
+[MITM]
+hostname = qr.alipay.com
