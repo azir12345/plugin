@@ -1,0 +1,15 @@
+[MITM]
+hostname = zhcg.cpu.edu.cn
+
+[Script]
+# 拦截保存请求（只在 11:59–12:00）
+save_request = type=http-request,pattern=http://zhcg.cpu.edu.cn/post/saveYuyue,requires-body=1,script-path=save_request.js
+
+# 拦截响应，计算差值并修改返回
+modify_response = type=http-response,pattern=http://zhcg.cpu.edu.cn/post/saveYuyue,requires-body=1,script-path=modify_response.js
+
+# 定时重放任务
+replay_request = type=cron,cronexp="59 11 * * *",script-path=replay_request.js
+
+[Argument]
+interval = 500
