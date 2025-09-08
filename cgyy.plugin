@@ -22,7 +22,7 @@ http-request ^http:\/\/zhcg\.cpu\.edu\.cn\/post\/saveYuyue$ script-path=https://
 http-response ^http:\/\/zhcg\.cpu\.edu\.cn\/post\/saveYuyue$ script-path=https://raw.githubusercontent.com/azir12345/plugin/refs/heads/main/modify_response.js,requires-body=true,max-size=0,tag=修改响应
 
 # 每天 11:59:59 开始重放请求
-cron 59 11 * * * script-path=https://raw.githubusercontent.com/azir12345/plugin/refs/heads/main/replay_request.js,timeout=300,tag=定时重放,argument=[{interval},{debug}]
+cron "59 11 * * *" script-path=https://raw.githubusercontent.com/azir12345/plugin/refs/heads/main/replay_request.js,timeout=300,tag=定时重放,argument=[{interval},{debug}]
 
 [MITM]
 enable = true
