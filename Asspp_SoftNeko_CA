@@ -1,0 +1,6 @@
+#!name=Asspp_SoftNeko_CA
+#!desc=asspp download
+[host]
+asspp.softneko.com = 198.18.0.2
+[rule]
+DOMAIN,asspp.softneko.com,CA
